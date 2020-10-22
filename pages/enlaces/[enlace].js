@@ -5,7 +5,8 @@ import appContext from '../../context/app/appContext'
 import Alerta from '../../components/Alerta'
 
 // Los statics props son los atributos del elemento
-export async function getServerSideProps({ params }){
+// getServerSideProps o getStaticProps 
+export async function getStaticProps ({ params }){
     
     const { enlace } = params
     const response = await clienteAxios.get(`/api/enlaces/${enlace}`)
@@ -20,7 +21,8 @@ export async function getServerSideProps({ params }){
 }
 
 // El static paths es el routing dinámico
-export async function getServerSidePaths(){
+// getServerSidePaths o getStaticPaths
+export async function getStaticPaths(){
     const response = await clienteAxios.get('/api/enlaces')
     // console.log(response.data)
 
